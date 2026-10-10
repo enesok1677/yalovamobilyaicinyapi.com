@@ -1,0 +1,2642 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Banyo Dolapları | İçin Yapı & Dekorasyon</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #222;
+            background:
+                linear-gradient(
+                    rgba(245, 243, 238, 0.90),
+                    rgba(232, 229, 222, 0.94)
+                ),
+                url("./images/banyo-arkaplan.png") center center / cover fixed;
+        }
+
+
+        /* =========================
+           ÜST MENÜ
+        ========================= */
+
+        .ust-menu {
+            width: 100%;
+            background: rgba(25, 25, 25, 0.96);
+            min-height: 68px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 12px;
+            padding: 10px 20px;
+
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            box-shadow: 0 3px 15px rgba(0,0,0,0.20);
+        }
+
+        .menu-buton {
+            text-decoration: none;
+            color: white;
+
+            padding: 11px 20px;
+
+            border-radius: 25px;
+
+            font-size: 14px;
+            font-weight: bold;
+
+            transition: 0.25s;
+        }
+
+        .menu-buton:hover {
+            background: #ff7200;
+            color: white;
+        }
+
+        .menu-aktif {
+            background: #ff7200;
+        }
+
+
+        /* =========================
+           LOGO + BAŞLIK ALANI
+        ========================= */
+
+        .baslik-alani {
+
+            width: 94%;
+            max-width: 1500px;
+
+            margin: 30px auto 25px;
+
+            background: rgba(255,255,255,0.90);
+
+            border-radius: 25px;
+
+            box-shadow: 0 8px 35px rgba(0,0,0,0.13);
+
+            padding: 28px 40px;
+
+            display: grid;
+
+            grid-template-columns: 1fr auto 1fr;
+
+            align-items: center;
+
+            gap: 30px;
+
+            border: 1px solid rgba(255,255,255,0.9);
+        }
+
+
+        /* SOL LOGO */
+
+        .firma-logo {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        .firma-logo img {
+            max-width: 190px;
+            max-height: 90px;
+
+            object-fit: contain;
+        }
+
+
+        /* ORTA BAŞLIK */
+
+        .baslik {
+
+            text-align: center;
+
+            padding: 0 30px;
+
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+        }
+
+        .baslik h1 {
+
+            font-size: 42px;
+
+            color: #292929;
+
+            letter-spacing: 0.5px;
+
+            margin-bottom: 8px;
+        }
+
+        .baslik h1 span {
+            color: #ff7200;
+        }
+
+        .baslik p {
+
+            color: #666;
+
+            font-size: 15px;
+
+            line-height: 1.6;
+        }
+
+
+        /* FYM LOGO */
+
+        .fym-logo {
+
+            display: flex;
+
+            justify-content: flex-end;
+
+            align-items: center;
+        }
+
+        .fym-logo img {
+
+            max-width: 190px;
+            max-height: 90px;
+
+            object-fit: contain;
+        }
+
+
+        /* =========================
+           İÇERİK ÜST BÖLÜM
+        ========================= */
+
+        .kontrol-alani {
+
+            width: 94%;
+            max-width: 1500px;
+
+            margin: 0 auto 25px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 20px;
+
+            flex-wrap: wrap;
+        }
+
+
+        .geri-buton {
+
+            display: inline-block;
+
+            background: #242424;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 13px 22px;
+
+            border-radius: 30px;
+
+            font-weight: bold;
+
+            transition: 0.25s;
+        }
+
+        .geri-buton:hover {
+
+            background: #ff7200;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           ARAMA
+        ========================= */
+
+        .arama {
+
+            position: relative;
+
+            min-width: 280px;
+        }
+
+        .arama input {
+
+            width: 100%;
+
+            padding: 14px 18px;
+
+            border-radius: 30px;
+
+            border: 1px solid #d0d0d0;
+
+            outline: none;
+
+            font-size: 14px;
+
+            background: rgba(255,255,255,0.95);
+
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .arama input:focus {
+
+            border-color: #ff7200;
+
+            box-shadow: 0 0 0 3px rgba(255,114,0,0.12);
+        }
+
+
+        /* =========================
+           ÖLÇÜ FİLTRELERİ
+        ========================= */
+
+        .filtreler {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            flex-wrap: wrap;
+        }
+
+        .filtre-baslik {
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            color: #444;
+
+            margin-right: 4px;
+        }
+
+        .filtre {
+
+            border: 1px solid #ccc;
+
+            background: rgba(255,255,255,0.85);
+
+            color: #333;
+
+            padding: 9px 15px;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+        .filtre:hover {
+
+            border-color: #ff7200;
+
+            color: #ff7200;
+        }
+
+        .filtre.aktif {
+
+            background: #ff7200;
+
+            color: white;
+
+            border-color: #ff7200;
+        }
+
+
+        /* =========================
+           ÜRÜN GRID
+        ========================= */
+
+        .urunler {
+
+            width: 94%;
+
+            max-width: 1500px;
+
+            margin: 0 auto 60px;
+
+            display: grid;
+
+            grid-template-columns: repeat(4, 1fr);
+
+            gap: 22px;
+        }
+
+
+        /* =========================
+           ÜRÜN KARTI
+        ========================= */
+
+        .urun-karti {
+
+            background: rgba(255,255,255,0.96);
+
+            border-radius: 18px;
+
+            overflow: hidden;
+
+            box-shadow: 0 7px 25px rgba(0,0,0,0.12);
+
+            border: 1px solid #e1ded8;
+
+            transition: 0.3s;
+
+            display: flex;
+
+            flex-direction: column;
+        }
+
+        .urun-karti:hover {
+
+            transform: translateY(-6px);
+
+            box-shadow: 0 14px 35px rgba(0,0,0,0.18);
+
+            border-color: #ff7200;
+        }
+
+
+        /* ÜRÜN RESMİ */
+
+        .urun-resim {
+
+            width: 100%;
+
+            height: 290px;
+
+            background: #f7f7f5;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .urun-resim img {
+
+            width: 100%;
+
+            height: 100%;
+
+            object-fit: contain;
+
+            transition: 0.4s;
+        }
+
+        .urun-karti:hover .urun-resim img {
+
+            transform: scale(1.04);
+        }
+
+
+        /* ÜRÜN BİLGİSİ */
+
+        .urun-bilgi {
+
+            padding: 18px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            flex: 1;
+        }
+
+        .urun-bilgi h2 {
+
+            font-size: 17px;
+
+            line-height: 1.4;
+
+            color: #242424;
+
+            margin-bottom: 12px;
+        }
+
+
+        .urun-olcu {
+
+            color: #666;
+
+            font-size: 14px;
+
+            margin-bottom: 8px;
+        }
+
+        .urun-fiyat {
+
+            font-size: 17px;
+
+            font-weight: bold;
+
+            color: #ff7200;
+
+            margin-bottom: 16px;
+        }
+
+
+        /* ÜRÜN BUTONU */
+
+        .urun-buton {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            background: #ff7200;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 18px;
+
+            border-radius: 25px;
+
+            font-weight: bold;
+
+            transition: 0.25s;
+
+            margin-top: auto;
+        }
+
+        .urun-buton:hover {
+
+            background: #e66100;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* GİZLİ ÜRÜN */
+
+        .gizli {
+
+            display: none !important;
+        }
+
+
+        /* =========================
+           ALT BİLGİ
+        ========================= */
+
+        .alt-bilgi {
+
+            text-align: center;
+
+            padding: 25px;
+
+            color: #666;
+
+            font-size: 14px;
+        }
+
+
+        /* =========================
+           TABLET
+        ========================= */
+
+        @media (max-width: 1150px) {
+
+            .urunler {
+
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .baslik h1 {
+
+                font-size: 34px;
+            }
+
+            .firma-logo img,
+            .fym-logo img {
+
+                max-width: 150px;
+            }
+        }
+
+
+        /* =========================
+           TELEFON
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .ust-menu {
+
+                justify-content: flex-start;
+
+                overflow-x: auto;
+
+                flex-wrap: nowrap;
+            }
+
+            .menu-buton {
+
+                white-space: nowrap;
+            }
+
+
+            .baslik-alani {
+
+                grid-template-columns: 1fr;
+
+                text-align: center;
+
+                padding: 25px 20px;
+
+                gap: 20px;
+            }
+
+            .firma-logo,
+            .fym-logo {
+
+                justify-content: center;
+            }
+
+            .baslik {
+
+                border-left: none;
+
+                border-right: none;
+
+                border-top: 1px solid #ddd;
+
+                border-bottom: 1px solid #ddd;
+
+                padding: 20px 0;
+            }
+
+            .baslik h1 {
+
+                font-size: 31px;
+            }
+
+            .kontrol-alani {
+
+                flex-direction: column;
+
+                align-items: stretch;
+            }
+
+            .arama {
+
+                width: 100%;
+            }
+
+            .filtreler {
+
+                justify-content: center;
+            }
+
+            .urunler {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 14px;
+            }
+
+            .urun-resim {
+
+                height: 230px;
+            }
+        }
+
+
+        @media (max-width: 520px) {
+
+            .urunler {
+
+                grid-template-columns: 1fr;
+            }
+
+            .urun-resim {
+
+                height: 300px;
+            }
+
+            .baslik h1 {
+
+                font-size: 28px;
+            }
+
+            .firma-logo img,
+            .fym-logo img {
+
+                max-width: 170px;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         ÜST MENÜ
+    ========================= -->
+
+    <nav class="ust-menu">
+
+        <a href="magaza.html" class="menu-buton">
+            Mağaza
+        </a>
+
+        <a href="banyo-dolaplari.html" class="menu-buton menu-aktif">
+            Banyo Dolapları
+        </a>
+
+        <a href="index.html" class="menu-buton">
+            Ana Sayfa
+        </a>
+
+    </nav>
+
+
+
+    <!-- =========================
+         LOGOLAR + BAŞLIK
+    ========================= -->
+
+    <section class="baslik-alani">
+
+
+        <!-- SOLDA SİZİN LOGONUZ -->
+
+        <div class="firma-logo">
+
+            <img
+                src="./images/inin.png"
+                alt="İçin Yapı & Dekorasyon"
+            >
+
+        </div>
+
+
+
+        <!-- ORTA BAŞLIK -->
+
+        <div class="baslik">
+
+            <h1>
+                Banyo <span>Dolapları</span>
+            </h1>
+
+            <h3>
+                İstediğiniz modele daha çok yaklaşmak adına
+                <br> 
+                atölyemizde istediğiniz modelleri manuel olarak da
+                <br>
+                tasarlama seçeneği sunuyoruz!
+        
+            </h3>
+
+        </div>
+
+
+
+        <!-- SAĞDA FYM LOGOSU -->
+
+        <div class="fym-logo">
+
+            <img
+                src="images/fymlogo.png"
+                alt="FYM Banyo"
+            >
+
+        </div>
+
+
+    </section>
+
+
+
+    <!-- =========================
+         GERİ + ARAMA + FİLTRE
+    ========================= -->
+
+    <section class="kontrol-alani">
+
+
+        <a href="magaza.html" class="geri-buton">
+            ← Mağazaya Dön
+        </a>
+
+
+        <div class="arama">
+
+            <input
+                type="text"
+                id="aramaKutusu"
+                placeholder="Ürün ara..."
+            >
+
+        </div>
+
+
+        <div class="filtreler">
+
+            <span class="filtre-baslik">
+                Ölçü:
+            </span>
+
+            <button class="filtre aktif" data-olcu="tumu">
+                Tümü
+            </button>
+
+            <button class="filtre" data-olcu="45">
+                45 cm
+            </button>
+
+            <button class="filtre" data-olcu="50">
+                50 cm
+            </button>
+
+            <button class="filtre" data-olcu="60">
+                60 cm
+            </button>
+
+            <button class="filtre" data-olcu="65">
+                65 cm
+            </button>
+
+            <button class="filtre" data-olcu="80">
+                80 cm
+            </button>
+
+            <button class="filtre" data-olcu="90">
+                90 cm
+            </button>
+
+            <button class="filtre" data-olcu="100">
+                100 cm
+            </button>
+
+            <button class="filtre" data-olcu="105">
+                105 cm
+            </button>
+
+            <button class="filtre" data-olcu="120">
+                120 cm
+            </button>
+
+            <button class="filtre" data-olcu="140">
+                140 cm
+            </button>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         ÜRÜNLER
+    ========================= -->
+
+    <main class="urunler" id="urunler">
+
+
+        <!-- 1 -->
+
+        <article class="urun-karti"
+            data-ad="bodrum 80 kül gri banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+
+                <img
+                    src="./images/bodrum80.png"
+                    alt="Bodrum 80 cm Kül Gri Banyo Dolabı"
+                >
+
+            </div>
+
+            <div class="urun-bilgi">
+
+                <h2>
+                    Bodrum 80 cm Kül Gri Banyo Dolabı
+                </h2>
+
+                <div class="urun-olcu">
+                    📏 Ölçü: 80 cm
+                </div>
+
+                <div class="urun-fiyat">
+                    31.500 TL
+                </div>
+
+                <a
+                    href="banyo-dolabi-detay.html?urun=bodrum80"
+                    class="urun-buton"
+                >
+                    Ürünü İncele →
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- 2 -->
+
+        <article class="urun-karti"
+            data-ad="mina 50 cm mdf banyo dolabı beyaz"
+            data-olcu="50">
+
+            <div class="urun-resim">
+                <img
+                    src="./images/mina50.jpg"
+                    alt="Mina 50 cm MDF Banyo Dolabı Beyaz"
+                >
+            </div>
+
+            <div class="urun-bilgi">
+
+                <h2>
+                    Mina 50 cm MDF Banyo Dolabı Beyaz
+                </h2>
+
+                <div class="urun-olcu">
+                    📏 Ölçü: 50 cm
+                </div>
+
+                <div class="urun-fiyat">
+                    9.800 TL
+                </div>
+
+                <a href="banyo-dolabi-detay.html?urun=mina50"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- 3 -->
+
+        <article class="urun-karti"
+            data-ad="astra 50 cm mdf banyo dolabı beyaz"
+            data-olcu="50">
+
+            <div class="urun-resim">
+                <img
+                    src="./images/astra50.jpg"
+                    alt="Astra 50 cm MDF Banyo Dolabı Beyaz"
+                >
+            </div>
+
+            <div class="urun-bilgi">
+
+                <h2>
+                    Astra 50 cm MDF Banyo Dolabı Beyaz
+                </h2>
+
+                <div class="urun-olcu">
+                    📏 Ölçü: 50 cm
+                </div>
+
+                <div class="urun-fiyat">
+                    10.100 TL
+                </div>
+
+                <a href="banyo-dolabi-detay.html?urun=astra50"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- 4 -->
+
+        <article class="urun-karti"
+            data-ad="koza 80 cm mdf banyo dolabı beyaz"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img
+                    src="./images/koza80.jpg"
+                    alt="Koza 80 cm MDF Banyo Dolabı Beyaz"
+                >
+            </div>
+
+            <div class="urun-bilgi">
+
+                <h2>
+                    Koza 80 cm MDF Banyo Dolabı Beyaz
+                </h2>
+
+                <div class="urun-olcu">
+                    📏 Ölçü: 80 cm
+                </div>
+
+                <div class="urun-fiyat">
+                    14.000 TL
+                </div>
+
+                <a href="banyo-dolabi-detay.html?urun=koza80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- 5 -->
+
+        <article class="urun-karti"
+            data-ad="ada 90 cm banyo dolabı"
+            data-olcu="90">
+
+            <div class="urun-resim">
+                <img src="./images/ada90.webp" alt="Ada 90 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Ada 90 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 90 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=ada90"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 6 -->
+
+        <article class="urun-karti"
+            data-ad="atlantik 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/atlantik100.webp"
+                     alt="Atlantik 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Atlantik 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=atlantik100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 7 -->
+
+        <article class="urun-karti"
+            data-ad="begonya banyo dolabı"
+            data-olcu="">
+
+            <div class="urun-resim">
+                <img src="./images/begonya.webp"
+                     alt="Begonya Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Begonya Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: Bilgi için iletişime geçiniz</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=begonya"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 8 -->
+
+        <article class="urun-karti"
+            data-ad="bodrum 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/bodrum100.webp"
+                     alt="Bodrum 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Bodrum 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=bodrum100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 9 -->
+
+        <article class="urun-karti"
+            data-ad="bodrum 120 cm banyo dolabı"
+            data-olcu="120">
+
+            <div class="urun-resim">
+                <img src="./images/bodrum120.webp"
+                     alt="Bodrum 120 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Bodrum 120 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 120 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=bodrum120"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 10 -->
+
+        <article class="urun-karti"
+            data-ad="astra 60 cm banyo dolabı"
+            data-olcu="60">
+
+            <div class="urun-resim">
+                <img src="./images/astra60.jpg"
+                     alt="Astra 60 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Astra 60 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 60 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=astra60"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 11 -->
+
+        <article class="urun-karti"
+            data-ad="balero 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/balero100.jpg"
+                     alt="Balero 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Balero 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=balero100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 12 -->
+
+        <article class="urun-karti"
+            data-ad="beta 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/beta80.webp"
+                     alt="Beta 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Beta 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=beta80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 13 -->
+
+        <article class="urun-karti"
+            data-ad="beta 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/beta100.webp"
+                     alt="Beta 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Beta 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=beta100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 14 -->
+
+        <article class="urun-karti"
+            data-ad="atlantik 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/atlantik80.webp"
+                     alt="Atlantik 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Atlantik 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=atlantik80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 15 -->
+
+        <article class="urun-karti"
+            data-ad="cesme 65 cm banyo dolabı"
+            data-olcu="65">
+
+            <div class="urun-resim">
+                <img src="./images/cesme65.webp"
+                     alt="Çeşme 65 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Çeşme 65 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 65 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=cesme65"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 16 -->
+
+        <article class="urun-karti"
+            data-ad="cesme 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/cesme80.webp"
+                     alt="Çeşme 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Çeşme 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=cesme80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 17 -->
+
+        <article class="urun-karti"
+            data-ad="emma 65 cm banyo dolabı"
+            data-olcu="65">
+
+            <div class="urun-resim">
+                <img src="./images/emma65.webp"
+                     alt="Emma 65 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Emma 65 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 65 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=emma65"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 18 -->
+
+        <article class="urun-karti"
+            data-ad="emma 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/emma80.webp"
+                     alt="Emma 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Emma 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=emma80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 19 -->
+
+        <article class="urun-karti"
+            data-ad="emma 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/emma100.webp"
+                     alt="Emma 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Emma 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=emma100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 20 -->
+
+        <article class="urun-karti"
+            data-ad="enzo 65 cm banyo dolabı"
+            data-olcu="65">
+
+            <div class="urun-resim">
+                <img src="./images/enzo65.jpg"
+                     alt="Enzo 65 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Enzo 65 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 65 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=enzo65"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 21 -->
+
+        <article class="urun-karti"
+            data-ad="enzo 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/enzo80.jpg"
+                     alt="Enzo 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Enzo 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=enzo80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 22 -->
+
+        <article class="urun-karti"
+            data-ad="enzo 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/enzo100.jpg"
+                     alt="Enzo 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Enzo 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=enzo100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 23 -->
+
+        <article class="urun-karti"
+            data-ad="esse 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/esse80.jpg"
+                     alt="Esse 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Esse 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=esse80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 24 -->
+
+        <article class="urun-karti"
+            data-ad="garden 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/garden80.jpg"
+                     alt="Garden 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Garden 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=garden80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 25 -->
+
+        <article class="urun-karti"
+            data-ad="garden 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/garden100.jpg"
+                     alt="Garden 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Garden 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=garden100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 26 -->
+
+        <article class="urun-karti"
+            data-ad="girit 140 cm banyo dolabı"
+            data-olcu="140">
+
+            <div class="urun-resim">
+                <img src="./images/girit140.webp"
+                     alt="Girit 140 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Girit 140 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 140 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=girit140"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 27 -->
+
+        <article class="urun-karti"
+            data-ad="gloria 60 cm banyo dolabı"
+            data-olcu="60">
+
+            <div class="urun-resim">
+                <img src="./images/gloria60.webp"
+                     alt="Gloria 60 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Gloria 60 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 60 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=gloria60"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 28 -->
+
+        <article class="urun-karti"
+            data-ad="gloria 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/gloria80.webp"
+                     alt="Gloria 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Gloria 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=gloria80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 29 -->
+
+        <article class="urun-karti"
+            data-ad="gloria 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/gloria100.webp"
+                     alt="Gloria 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Gloria 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=gloria100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 30 -->
+
+        <article class="urun-karti"
+            data-ad="gocek 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/gocek80.webp"
+                     alt="Göcek 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Göcek 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=gocek80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 31 -->
+
+        <article class="urun-karti"
+            data-ad="gocek 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/gocek100.webp"
+                     alt="Göcek 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Göcek 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=gocek100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 32 -->
+
+        <article class="urun-karti"
+            data-ad="gocek 120 cm banyo dolabı"
+            data-olcu="120">
+
+            <div class="urun-resim">
+                <img src="./images/gocek120.webp"
+                     alt="Göcek 120 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Göcek 120 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 120 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=gocek120"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 33 -->
+
+        <article class="urun-karti"
+            data-ad="infinity 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/infinity80.jpg"
+                     alt="Infinity 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Infinity 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=infinity80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 34 -->
+
+        <article class="urun-karti"
+            data-ad="koza 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/koza100.jpg"
+                     alt="Koza 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Koza 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=koza100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 35 -->
+
+        <article class="urun-karti"
+            data-ad="lexus 120 cm banyo dolabı"
+            data-olcu="120">
+
+            <div class="urun-resim">
+                <img src="./images/lexus120.jpg"
+                     alt="Lexus 120 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Lexus 120 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 120 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=lexus120"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 36 -->
+
+        <article class="urun-karti"
+            data-ad="megalux 60 cm banyo dolabı"
+            data-olcu="60">
+
+            <div class="urun-resim">
+                <img src="./images/megalux60.webp"
+                     alt="Megalux 60 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Megalux 60 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 60 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=megalux60"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 37 -->
+
+        <article class="urun-karti"
+            data-ad="megalux 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/megalux80.webp"
+                     alt="Megalux 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Megalux 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=megalux80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 38 -->
+
+        <article class="urun-karti"
+            data-ad="megalux 105 cm banyo dolabı"
+            data-olcu="105">
+
+            <div class="urun-resim">
+                <img src="./images/megalux105.webp"
+                     alt="Megalux 105 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Megalux 105 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 105 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=megalux105"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 39 -->
+
+        <article class="urun-karti"
+            data-ad="mina 60 cm banyo dolabı"
+            data-olcu="60">
+
+            <div class="urun-resim">
+                <img src="./images/mina60.jpg"
+                     alt="Mina 60 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Mina 60 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 60 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=mina60"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 40 -->
+
+        <article class="urun-karti"
+            data-ad="newide 60 cm banyo dolabı"
+            data-olcu="60">
+
+            <div class="urun-resim">
+                <img src="./images/newide60.jpg"
+                     alt="Newide 60 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Newide 60 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 60 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=newide60"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 41 -->
+
+        <article class="urun-karti"
+            data-ad="phuket 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/phuket80.webp"
+                     alt="Phuket 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Phuket 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=phuket80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 42 -->
+
+        <article class="urun-karti"
+            data-ad="prada 65 cm banyo dolabı"
+            data-olcu="65">
+
+            <div class="urun-resim">
+                <img src="./images/prada65.jpg"
+                     alt="Prada 65 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Prada 65 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 65 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=prada65"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 43 -->
+
+        <article class="urun-karti"
+            data-ad="prada 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/prada80.jpg"
+                     alt="Prada 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Prada 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=prada80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 44 -->
+
+        <article class="urun-karti"
+            data-ad="prada 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/prada100.jpg"
+                     alt="Prada 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Prada 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=prada100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 45 -->
+
+        <article class="urun-karti"
+            data-ad="reneta 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/reneta80.webp"
+                     alt="Reneta 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Reneta 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=reneta80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 46 -->
+
+        <article class="urun-karti"
+            data-ad="rosa 65 cm banyo dolabı"
+            data-olcu="65">
+
+            <div class="urun-resim">
+                <img src="./images/rosa65.jpg"
+                     alt="Rosa 65 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Rosa 65 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 65 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=rosa65"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 47 -->
+
+        <article class="urun-karti"
+            data-ad="rosa 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/rosa80.jpg"
+                     alt="Rosa 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Rosa 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=rosa80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 48 -->
+
+        <article class="urun-karti"
+            data-ad="rosa 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/rosa100.jpg"
+                     alt="Rosa 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Rosa 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=rosa100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 49 -->
+
+        <article class="urun-karti"
+            data-ad="stella 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/stella80.webp"
+                     alt="Stella 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Stella 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=stella80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 50 -->
+
+        <article class="urun-karti"
+            data-ad="stella 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/stella80cm.webp"
+                     alt="Stella 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Stella 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=stella80cm"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 51 -->
+
+        <article class="urun-karti"
+            data-ad="stella 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/stella100.webp"
+                     alt="Stella 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Stella 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=stella100"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 52 -->
+
+        <article class="urun-karti"
+            data-ad="stella 100 cm banyo dolabı"
+            data-olcu="100">
+
+            <div class="urun-resim">
+                <img src="./images/stella100cm.webp"
+                     alt="Stella 100 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Stella 100 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 100 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=stella100cm"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 53 -->
+
+        <article class="urun-karti"
+            data-ad="trend 60 cm banyo dolabı"
+            data-olcu="60">
+
+            <div class="urun-resim">
+                <img src="./images/trend60.webp"
+                     alt="Trend 60 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Trend 60 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 60 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=trend60"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 54 -->
+
+        <article class="urun-karti"
+            data-ad="trend 80 cm banyo dolabı"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/trend80.webp"
+                     alt="Trend 80 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Trend 80 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=trend80"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 55 -->
+
+        <article class="urun-karti"
+            data-ad="trend 105 cm banyo dolabı"
+            data-olcu="105">
+
+            <div class="urun-resim">
+                <img src="./images/trend105.webp"
+                     alt="Trend 105 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Trend 105 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 105 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=trend105"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 56 -->
+
+        <article class="urun-karti"
+            data-ad="yakut 45 cm banyo dolabı"
+            data-olcu="45">
+
+            <div class="urun-resim">
+                <img src="./images/yakut45.jpg"
+                     alt="Yakut 45 cm Banyo Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Yakut 45 cm Banyo Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: 45 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=yakut45"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 57 -->
+
+        <article class="urun-karti"
+            data-ad="çamaşır makinesi dolabı 1"
+            data-olcu="">
+
+            <div class="urun-resim">
+                <img src="./images/camasir1.webp"
+                     alt="Çamaşır Makinesi Dolabı 1">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Çamaşır Makinesi Dolabı 1</h2>
+                <div class="urun-olcu">📏 Ölçü: Bilgi için iletişime geçiniz</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=camasir1"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 58 -->
+
+        <article class="urun-karti"
+            data-ad="çamaşır makinesi dolabı 2"
+            data-olcu="">
+
+            <div class="urun-resim">
+                <img src="./images/camasir2.webp"
+                     alt="Çamaşır Makinesi Dolabı 2">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Çamaşır Makinesi Dolabı 2</h2>
+                <div class="urun-olcu">📏 Ölçü: Bilgi için iletişime geçiniz</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=camasir2"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 59 -->
+
+        <article class="urun-karti"
+            data-ad="çamaşır makinesi dolabı 3"
+            data-olcu="">
+
+            <div class="urun-resim">
+                <img src="./images/camasir3.webp"
+                     alt="Çamaşır Makinesi Dolabı 3">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Çamaşır Makinesi Dolabı 3</h2>
+                <div class="urun-olcu">📏 Ölçü: Bilgi için iletişime geçiniz</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=camasir3"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 60 -->
+
+        <!-- 61 -->
+
+        <article class="urun-karti"
+            data-ad="deniz 80 cm takım"
+            data-olcu="80">
+
+            <div class="urun-resim">
+                <img src="./images/deniz80takim.jpg"
+                     alt="Deniz 80 cm Takım">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Deniz 80 cm Takım</h2>
+                <div class="urun-olcu">📏 Ölçü: 80 cm</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=deniz80takim"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 62 -->
+
+        <article class="urun-karti"
+            data-ad="boy dolabı 1"
+            data-olcu="">
+
+            <div class="urun-resim">
+                <img src="./images/boydolabi1.jpg"
+                     alt="Boy Dolabı 1">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Boy Dolabı 1</h2>
+                <div class="urun-olcu">📏 Ölçü: Bilgi için iletişime geçiniz</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=boydolabi1"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 63 -->
+
+        <article class="urun-karti"
+            data-ad="boy dolabı 2"
+            data-olcu="">
+
+            <div class="urun-resim">
+                <img src="./images/boydolabi2.jpg"
+                     alt="Boy Dolabı 2">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Boy Dolabı 2</h2>
+                <div class="urun-olcu">📏 Ölçü: Bilgi için iletişime geçiniz</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=boydolabi2"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+
+        <!-- 64 -->
+
+        <article class="urun-karti"
+            data-ad="beyaz boy dolabı"
+            data-olcu="">
+
+            <div class="urun-resim">
+                <img src="./images/beyazboy.jpg"
+                     alt="Beyaz Boy Dolabı">
+            </div>
+
+            <div class="urun-bilgi">
+                <h2>Beyaz Boy Dolabı</h2>
+                <div class="urun-olcu">📏 Ölçü: Bilgi için iletişime geçiniz</div>
+                <div class="urun-fiyat">Fiyat için bilgi alınız</div>
+
+                <a href="banyo-dolabi-detay.html?urun=beyazboy"
+                   class="urun-buton">
+                    Ürünü İncele →
+                </a>
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+
+    <!-- =========================
+         ALT
+    ========================= -->
+
+    <footer class="alt-bilgi">
+
+        © 2026 İçin Yapı & Dekorasyon
+        — Banyo Dolapları
+
+    </footer>
+
+
+
+    <!-- =========================
+         ARAMA + FİLTRE JAVASCRIPT
+    ========================= -->
+
+    <script>
+
+        const aramaKutusu =
+            document.getElementById("aramaKutusu");
+
+        const urunKartlari =
+            document.querySelectorAll(".urun-karti");
+
+        const filtreler =
+            document.querySelectorAll(".filtre");
+
+
+        let secilenOlcu = "tumu";
+
+
+        function urunleriFiltrele() {
+
+            const arama =
+                aramaKutusu.value
+                    .toLowerCase()
+                    .trim();
+
+
+            urunKartlari.forEach(function(kart) {
+
+                const ad =
+                    kart.dataset.ad.toLowerCase();
+
+                const olcu =
+                    kart.dataset.olcu;
+
+
+                const aramaUygun =
+                    ad.includes(arama);
+
+
+                const olcuUygun =
+                    secilenOlcu === "tumu"
+                    ||
+                    olcu === secilenOlcu;
+
+
+                if (aramaUygun && olcuUygun) {
+
+                    kart.classList.remove("gizli");
+
+                } else {
+
+                    kart.classList.add("gizli");
+
+                }
+
+            });
+
+        }
+
+
+        /* ARAMA */
+
+        aramaKutusu.addEventListener(
+            "input",
+            urunleriFiltrele
+        );
+
+
+        /* ÖLÇÜ FİLTRESİ */
+
+        filtreler.forEach(function(filtre) {
+
+            filtre.addEventListener(
+                "click",
+                function() {
+
+                    filtreler.forEach(function(f) {
+
+                        f.classList.remove("aktif");
+
+                    });
+
+
+                    this.classList.add("aktif");
+
+
+                    secilenOlcu =
+                        this.dataset.olcu;
+
+
+                    urunleriFiltrele();
+
+                }
+            );
+
+        });
+
+    </script>
+
+
+</body>
+</html>

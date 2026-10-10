@@ -1,0 +1,433 @@
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #30251e;
+    background: #faf7f3;
+}
+
+.ust-menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 16px 6%;
+    background: #211b17;
+    color: white;
+}
+
+.marka {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.marka-logo {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: #f27619;
+    font-size: 24px;
+}
+
+.turuncu {
+    color: #ff8b35;
+}
+
+.geri-buton {
+    padding: 10px 15px;
+    border: 1px solid #ff8b35;
+    border-radius: 8px;
+    color: white;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.geri-buton:hover {
+    background: #f27619;
+}
+
+.hero {
+    padding: 48px 20px 28px;
+    text-align: center;
+}
+
+.ust-etiket {
+    color: #d65b0b;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.hero h1 {
+    margin: 12px 0;
+    font-size: clamp(32px, 5vw, 48px);
+}
+
+.hero p {
+    color: #74675d;
+    line-height: 1.7;
+}
+
+/* TANITIM BANNER'I */
+.tanitim {
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    margin: 10px auto 45px;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    border: 1px solid rgba(255, 174, 92, 0.45);
+    border-radius: 18px;
+    color: white;
+    background:
+        radial-gradient(circle at 90% 15%, rgba(255, 150, 55, 0.32), transparent 28%),
+        linear-gradient(120deg, #211b17, #57341f 65%, #a94f16);
+    box-shadow: 0 12px 30px rgba(70, 39, 18, 0.18);
+}
+
+.tanitim-etiket {
+    color: #ffc18a;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.tanitim h2 {
+    margin: 10px 0;
+    font-size: clamp(25px, 4vw, 36px);
+}
+
+.tanitim p {
+    max-width: 680px;
+    color: #f6e5d7;
+    line-height: 1.7;
+}
+
+.turuncu-buton {
+    flex-shrink: 0;
+    display: inline-block;
+    padding: 15px 22px;
+    border-radius: 9px;
+    background: #ff7200;
+    color: white;
+    font-weight: 800;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.turuncu-buton:hover {
+    background: #ff8c2a;
+    transform: translateY(-2px);
+}
+
+/* ÜRÜN KATALOĞU */
+.katalog {
+    width: calc(100% - 40px);
+    max-width: 1200px;
+    margin: 0 auto 65px;
+    scroll-margin-top: 25px;
+}
+
+.baslik-satiri {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.baslik-satiri h2 {
+    margin: 9px 0;
+    font-size: clamp(25px, 4vw, 35px);
+}
+
+.adet {
+    color: #75685e;
+    font-size: 13px;
+}
+
+.urun-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.urun-karti {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #ebdfd5;
+    border-radius: 15px;
+    background: white;
+    box-shadow: 0 7px 22px rgba(0, 0, 0, 0.055);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.urun-karti:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 13px 28px rgba(0, 0, 0, 0.1);
+}
+
+.urun-fotograf {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 245px;
+    padding: 12px;
+    background: #fff;
+}
+
+.fotograf-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+}
+
+.urun-fotograf img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.urun-fotograf img.fotograf-hatasi {
+    width: 100%;
+    height: auto;
+    min-height: 80px;
+    object-fit: contain;
+}
+
+.stok-etiketi {
+    position: absolute;
+    z-index: 2;
+    top: 12px;
+    left: 10px;
+    max-width: calc(100% - 20px);
+    padding: 8px 10px;
+    border-radius: 7px;
+    background: #267344;
+    color: white;
+    font-size: 11px;
+    line-height: 1.4;
+    font-weight: 800;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.12);
+}
+
+.urun-bilgi {
+    padding: 18px;
+    border-top: 1px solid #f1e9e2;
+}
+
+.urun-kategori {
+    display: inline-block;
+    margin-bottom: 9px;
+    color: #bd5a19;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.urun-bilgi h3 {
+    margin: 0 0 13px;
+    font-size: 18px;
+    line-height: 1.4;
+}
+
+.urun-fiyat {
+    padding-top: 12px;
+    border-top: 1px solid #eee2d7;
+    color: #c6530a;
+    font-size: 18px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.urun-fiyat.fiyat-bekliyor {
+    color: #81776e;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ALT BİLGİ */
+.alt-bilgi {
+    padding: 30px 20px;
+    text-align: center;
+    background: #211b17;
+    color: #f6e5d7;
+}
+
+.alt-bilgi h3 {
+    color: white;
+}
+
+.alt-bilgi a {
+    display: inline-block;
+    margin: 8px 0;
+    color: #ffad70;
+    text-decoration: none;
+}
+
+.alt-bilgi a:hover {
+    text-decoration: underline;
+}
+
+.telif {
+    margin-top: 22px;
+    color: #c8b8ab;
+    font-size: 12px;
+}
+
+/* FOTOĞRAFI BÜYÜTME */
+.foto-pencere {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 35px;
+    background: rgba(20, 16, 13, 0.92);
+}
+
+.foto-pencere.acik {
+    display: flex;
+}
+
+.foto-pencere img {
+    display: block;
+    max-width: 95%;
+    max-height: 88vh;
+    object-fit: contain;
+    border-radius: 8px;
+    background: white;
+}
+
+.foto-kapat {
+    position: absolute;
+    top: 15px;
+    right: 24px;
+    border: 0;
+    background: transparent;
+    color: white;
+    font-size: 42px;
+    cursor: pointer;
+}
+
+/* TABLET */
+@media (max-width: 950px) {
+    .urun-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .tanitim {
+        padding: 25px;
+    }
+}
+
+/* TELEFON */
+@media (max-width: 650px) {
+    .ust-menu {
+        padding: 14px 5%;
+    }
+
+    .marka {
+        font-size: 16px;
+    }
+
+    .marka-logo {
+        width: 36px;
+        height: 36px;
+        font-size: 21px;
+    }
+
+    .hero {
+        padding-top: 32px;
+    }
+
+    .tanitim {
+        width: calc(100% - 28px);
+        margin-bottom: 35px;
+        padding: 23px 18px;
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .turuncu-buton {
+        text-align: center;
+    }
+
+    .katalog {
+        width: calc(100% - 28px);
+    }
+
+    .baslik-satiri {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .urun-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .urun-fotograf {
+        height: 175px;
+        padding: 8px;
+    }
+
+    .stok-etiketi {
+        top: 7px;
+        left: 7px;
+        padding: 6px;
+        font-size: 9px;
+    }
+
+    .urun-bilgi {
+        padding: 12px;
+    }
+
+    .urun-bilgi h3 {
+        font-size: 15px;
+    }
+
+    .urun-fiyat {
+        font-size: 15px;
+    }
+
+    .foto-pencere {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 360px) {
+    .urun-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .urun-fotograf {
+        height: 240px;
+    }
+}

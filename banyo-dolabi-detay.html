@@ -1,0 +1,1816 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Banyo Dolabı | İçin Yapı & Dekorasyon</title>
+
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            font-family: Arial, sans-serif;
+
+            color: #222;
+
+            background:
+                linear-gradient(
+                    rgba(255,255,255,0.72),
+                    rgba(255,255,255,0.78)
+                ),
+                url("./images/banyo-arkaplan.png");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-attachment: fixed;
+
+        }
+
+
+        /* ÜST MENÜ */
+
+        .menu {
+
+            width: 100%;
+
+            background:
+                rgba(25,25,25,0.92);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 15px 5%;
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+        }
+
+
+        .logo {
+
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: bold;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+
+        }
+
+
+        .logo span {
+
+            color: #ff7200;
+
+        }
+
+
+        .menu-links {
+
+            display: flex;
+
+            gap: 8px;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            justify-content: flex-end;
+
+        }
+
+
+        .menu-links a {
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 9px 12px;
+
+            border-radius: 6px;
+
+            font-size: 14px;
+
+            transition: 0.3s;
+
+        }
+
+
+        .menu-links a:hover {
+
+            background: #ff7200;
+
+        }
+
+
+        /* ANA ALAN */
+
+        .sayfa {
+
+            width: 92%;
+
+            max-width: 1400px;
+
+            margin: 35px auto 70px;
+
+        }
+
+
+        /* GERİ BUTONU */
+
+        .geri {
+
+            display: inline-block;
+
+            padding: 12px 22px;
+
+            margin-bottom: 25px;
+
+            background: #333;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+        .geri:hover {
+
+            background: #ff7200;
+
+        }
+
+
+        /* ÜRÜN KUTUSU */
+
+        .urun-detay {
+
+            display: grid;
+
+            grid-template-columns: 1.15fr 0.85fr;
+
+            gap: 35px;
+
+            background:
+                rgba(255,255,255,0.91);
+
+            border-radius: 20px;
+
+            padding: 30px;
+
+            box-shadow:
+                0 15px 45px rgba(0,0,0,0.20);
+
+        }
+
+
+        /* SOL FOTOĞRAF */
+
+        .foto-alani {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            min-height: 600px;
+
+            background: #f3f1ed;
+
+            border-radius: 15px;
+
+            overflow: hidden;
+
+        }
+
+
+        .foto-alani img {
+
+            width: 100%;
+
+            height: 600px;
+
+            object-fit: contain;
+
+            display: block;
+
+        }
+
+
+        /* SAĞ BİLGİ */
+
+        .bilgi {
+
+            padding: 20px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+        }
+
+
+        .etiket {
+
+            color: #ff7200;
+
+            font-weight: bold;
+
+            font-size: 16px;
+
+            margin-bottom: 12px;
+
+        }
+
+
+        .bilgi h1 {
+
+            font-size: 42px;
+
+            line-height: 1.15;
+
+            margin-bottom: 20px;
+
+            color: #222;
+
+        }
+
+
+        .fiyat {
+
+            display: inline-block;
+
+            width: fit-content;
+
+            background: #ff7200;
+
+            color: white;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+            padding: 12px 20px;
+
+            border-radius: 9px;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .aciklama {
+
+            font-size: 17px;
+
+            line-height: 1.7;
+
+            color: #444;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        /* ÜRÜN BİLGİLERİ */
+
+        .bilgi-baslik {
+
+            color: #ff7200;
+
+            font-size: 22px;
+
+            margin-bottom: 15px;
+
+        }
+
+
+        .satir {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding: 12px 0;
+
+            border-bottom: 1px solid #ddd;
+
+            font-size: 16px;
+
+        }
+
+
+        .satir strong {
+
+            color: #222;
+
+        }
+
+
+        .satir span {
+
+            color: #555;
+
+            text-align: right;
+
+        }
+
+
+        /* WHATSAPP */
+
+        .whatsapp {
+
+            display: inline-block;
+
+            text-align: center;
+
+            margin-top: 28px;
+
+            padding: 16px 25px;
+
+            background: #25D366;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 9px;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+
+        }
+
+
+        .whatsapp:hover {
+
+            transform: translateY(-2px);
+
+            background: #1ebe5d;
+
+        }
+
+
+        /* ALT BÖLÜM */
+
+        .alt-bilgi {
+
+            margin-top: 30px;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(4, 1fr);
+
+            gap: 15px;
+
+        }
+
+
+        .alt-kutu {
+
+            background:
+                rgba(30,30,30,0.90);
+
+            color: white;
+
+            padding: 22px;
+
+            border-radius: 12px;
+
+            text-align: center;
+
+        }
+
+
+        .alt-kutu strong {
+
+            display: block;
+
+            color: #ff7200;
+
+            margin-bottom: 8px;
+
+            font-size: 17px;
+
+        }
+
+
+        .alt-kutu p {
+
+            font-size: 14px;
+
+            color: #ddd;
+
+        }
+
+
+        /* TABLET */
+
+        @media (max-width: 1000px) {
+
+            .menu {
+
+                flex-direction: column;
+
+                gap: 15px;
+
+            }
+
+
+            .urun-detay {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .alt-bilgi {
+
+                grid-template-columns: repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        /* TELEFON */
+
+        @media (max-width: 650px) {
+
+            .menu {
+
+                padding: 15px;
+
+            }
+
+
+            .logo {
+
+                font-size: 21px;
+
+            }
+
+
+            .menu-links {
+
+                justify-content: center;
+
+            }
+
+
+            .menu-links a {
+
+                font-size: 13px;
+
+                padding: 7px;
+
+            }
+
+
+            .sayfa {
+
+                width: 94%;
+
+            }
+
+
+            .urun-detay {
+
+                padding: 15px;
+
+            }
+
+
+            .foto-alani {
+
+                min-height: 350px;
+
+            }
+
+
+            .foto-alani img {
+
+                height: 350px;
+
+            }
+
+
+            .bilgi {
+
+                padding: 10px;
+
+            }
+
+
+            .bilgi h1 {
+
+                font-size: 29px;
+
+            }
+
+
+            .fiyat {
+
+                font-size: 23px;
+
+            }
+
+
+            .alt-bilgi {
+
+                grid-template-columns: 1fr;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ÜST MENÜ -->
+
+    <nav class="menu">
+
+
+        <a href="index.html"
+           class="logo">
+
+            İçin Yapı
+            <span>& Dekorasyon</span>
+
+        </a>
+
+
+        <div class="menu-links">
+
+            <a href="index.html">
+                Ana Sayfa
+            </a>
+
+            <a href="hakkimizda.html">
+                Hakkımızda
+            </a>
+
+            <a href="hizmetlerimiz.html">
+                Hizmetlerimiz
+            </a>
+
+            <a href="magaza.html">
+                Mağaza
+            </a>
+
+            <a href="https://icinyapidekorasyon.com/yazilar/">
+                Blog
+            </a>
+
+            <a href="https://maps.app.goo.gl/DjBM7qpNQEf9x2j18">
+                Neredeyiz?
+            </a>
+
+            <a href="iletisim.html">
+                İletişim
+            </a>
+
+        </div>
+
+
+    </nav>
+
+
+
+    <!-- ANA SAYFA -->
+
+    <main class="sayfa">
+
+
+        <a class="geri"
+           href="banyo-dolaplari.html">
+
+            ← Banyo Dolaplarına Dön
+
+        </a>
+
+
+
+        <section class="urun-detay">
+
+
+            <!-- FOTOĞRAF -->
+
+            <div class="foto-alani">
+
+                <img id="urunFoto"
+                     src=""
+                     alt="Banyo Dolabı">
+
+            </div>
+
+
+
+            <!-- BİLGİ -->
+
+            <div class="bilgi">
+
+
+                <div class="etiket">
+                    İÇİN YAPI & DEKORASYON
+                </div>
+
+
+                <h1 id="urunBaslik">
+                    Banyo Dolabı
+                </h1>
+
+
+                <div class="fiyat"
+                     id="urunFiyat">
+
+                    Fiyat için iletişime geçiniz
+
+                </div>
+
+
+                <p class="aciklama">
+
+                    Modern tasarıma sahip, banyonuza şık
+                    ve kullanışlı bir görünüm kazandıran
+                    banyo dolabı.
+
+                </p>
+
+
+                <h2 class="bilgi-baslik">
+
+                    Ürün Bilgileri
+
+                </h2>
+
+
+                <div class="satir">
+
+                    <strong>
+                        Model
+                    </strong>
+
+                    <span id="urunModel">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="satir">
+
+                    <strong>
+                        Ölçü
+                    </strong>
+
+                    <span id="urunOlcu">
+                        -
+                    </span>
+
+                </div>
+
+
+                <div class="satir">
+
+                    <strong>
+                        Kullanım Alanı
+                    </strong>
+
+                    <span>
+                        Banyo
+                    </span>
+
+                </div>
+
+
+                <div class="satir">
+
+                    <strong>
+                        Ürün Grubu
+                    </strong>
+
+                    <span>
+                        Banyo Dolabı
+                    </span>
+
+                </div>
+
+
+
+                <a class="whatsapp"
+                   id="whatsappLink"
+                   href="#"
+                   target="_blank">
+
+                    WhatsApp'tan Bilgi Al
+
+                </a>
+
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ALT BİLGİLER -->
+
+        <section class="alt-bilgi">
+
+
+            <div class="alt-kutu">
+
+                <strong>
+                    Ücretsiz Keşif
+                </strong>
+
+                <p>
+                    Sizlere en uygun çözümleri sunuyoruz.
+                </p>
+
+            </div>
+
+
+            <div class="alt-kutu">
+
+                <strong>
+                    Kaliteli Malzeme
+                </strong>
+
+                <p>
+                    Uzun ömürlü ve kullanışlı ürünler.
+                </p>
+
+            </div>
+
+
+            <div class="alt-kutu">
+
+                <strong>
+                    Profesyonel İşçilik
+                </strong>
+
+                <p>
+                    Usta kadromuzla hizmetinizdeyiz.
+                </p>
+
+            </div>
+
+
+            <div class="alt-kutu">
+
+                <strong>
+                    Yaşam Alanlarınıza Değer
+                </strong>
+
+                <p>
+                    Daha güzel ve kullanışlı mekanlar.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
+
+
+    <script>
+
+
+        /* ÜRÜN VERİLERİ */
+
+        const urunler = {
+
+
+            ada90: {
+
+                ad: "Ada 90 cm Banyo Dolabı",
+
+                model: "Ada",
+
+                olcu: "90 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/ada90.webp"
+
+            },
+
+
+            astra50: {
+
+                ad: "Astra 50 cm MDF Banyo Dolabı",
+
+                model: "Astra",
+
+                olcu: "50 cm",
+
+                fiyat: "10.100 TL",
+
+                foto: "./images/astra50.jpg"
+
+            },
+
+
+            astra60: {
+
+                ad: "Astra 60 cm Banyo Dolabı",
+
+                model: "Astra",
+
+                olcu: "60 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/astra60.jpg"
+
+            },
+
+
+            atlantik80: {
+
+                ad: "Atlantik 80 cm Banyo Dolabı",
+
+                model: "Atlantik",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/atlantik80.webp"
+
+            },
+
+
+            atlantik100: {
+
+                ad: "Atlantik 100 cm Banyo Dolabı",
+
+                model: "Atlantik",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/atlantik100.webp"
+
+            },
+
+
+            begonya: {
+
+                ad: "Begonya Banyo Dolabı",
+
+                model: "Begonya",
+
+                olcu: "Bilgi için iletişime geçiniz",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/begonya.webp"
+
+            },
+
+
+            bodrum80: {
+
+                ad: "Bodrum 80 cm Kül Gri Banyo Dolabı",
+
+                model: "Bodrum",
+
+                olcu: "80 cm",
+
+                fiyat: "31.500 TL",
+
+                foto: "./images/bodrum80.png"
+
+            },
+
+
+            bodrum100: {
+
+                ad: "Bodrum 100 cm Banyo Dolabı",
+
+                model: "Bodrum",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/bodrum100.webp"
+
+            },
+
+
+            bodrum120: {
+
+                ad: "Bodrum 120 cm Banyo Dolabı",
+
+                model: "Bodrum",
+
+                olcu: "120 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/bodrum120.webp"
+
+            },
+
+
+            boydolabi: {
+
+                ad: "Boy Dolabı",
+
+                model: "Boy Dolabı",
+
+                olcu: "Bilgi için iletişime geçiniz",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/boydolabi.jpg"
+
+            },
+
+
+            boydolabi2: {
+
+                ad: "Boy Dolabı 2",
+
+                model: "Boy Dolabı 2",
+
+                olcu: "Bilgi için iletişime geçiniz",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/boydolabi2.jpg"
+
+            },
+
+
+            beyazboy: {
+
+                ad: "Beyaz Boy Dolabı",
+
+                model: "Beyaz Boy",
+
+                olcu: "Bilgi için iletişime geçiniz",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/beyazboy.jpg"
+
+            },
+
+
+            cesme65: {
+
+                ad: "Çeşme 65 cm Banyo Dolabı",
+
+                model: "Çeşme",
+
+                olcu: "65 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/çeşme65.webp"
+
+            },
+
+
+            cesme80: {
+
+                ad: "Çeşme 80 cm Banyo Dolabı",
+
+                model: "Çeşme",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/çeşme80.webp"
+
+            },
+
+
+            deniz80: {
+
+                ad: "Deniz 80 cm Banyo Dolabı",
+
+                model: "Deniz",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/deniz80.png"
+
+            },
+
+
+            deniz80takim: {
+
+                ad: "Deniz 80 Takım",
+
+                model: "Deniz",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/deniz80takım.jpg"
+
+            },
+
+
+            emma65: {
+
+                ad: "Emma 65 cm Banyo Dolabı",
+
+                model: "Emma",
+
+                olcu: "65 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/emma65.webp"
+
+            },
+
+
+            emma80: {
+
+                ad: "Emma 80 cm Banyo Dolabı",
+
+                model: "Emma",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/emma80.webp"
+
+            },
+
+
+            emma100: {
+
+                ad: "Emma 100 cm Banyo Dolabı",
+
+                model: "Emma",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/emma100.webp"
+
+            },
+
+
+            enzo65: {
+
+                ad: "Enzo 65 cm Banyo Dolabı",
+
+                model: "Enzo",
+
+                olcu: "65 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/enzo65.jpg"
+
+            },
+
+
+            enzo80: {
+
+                ad: "Enzo 80 cm Banyo Dolabı",
+
+                model: "Enzo",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/enzo80.jpg"
+
+            },
+
+
+            enzo100: {
+
+                ad: "Enzo 100 cm Banyo Dolabı",
+
+                model: "Enzo",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/enzo100.jpg"
+
+            },
+
+
+            esse80: {
+
+                ad: "Esse 80 cm Banyo Dolabı",
+
+                model: "Esse",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/esse80.jpg"
+
+            },
+
+
+            garden80: {
+
+                ad: "Garden 80 cm Banyo Dolabı",
+
+                model: "Garden",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/garden80.jpg"
+
+            },
+
+
+            garden100: {
+
+                ad: "Garden 100 cm Banyo Dolabı",
+
+                model: "Garden",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/garden100.jpg"
+
+            },
+
+
+            girit140: {
+
+                ad: "Girit 140 cm Banyo Dolabı",
+
+                model: "Girit",
+
+                olcu: "140 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/girit140.webp"
+
+            },
+
+
+            gloria60: {
+
+                ad: "Gloria 60 cm Banyo Dolabı",
+
+                model: "Gloria",
+
+                olcu: "60 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/gloria60.webp"
+
+            },
+
+
+            gloria80: {
+
+                ad: "Gloria 80 cm Banyo Dolabı",
+
+                model: "Gloria",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/gloria80.webp"
+
+            },
+
+
+            gloria100: {
+
+                ad: "Gloria 100 cm Banyo Dolabı",
+
+                model: "Gloria",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/gloria100.webp"
+
+            },
+
+
+            gocek80: {
+
+                ad: "Göçek 80 cm Banyo Dolabı",
+
+                model: "Göçek",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/göçek80.webp"
+
+            },
+
+
+            gocek100: {
+
+                ad: "Göçek 100 cm Banyo Dolabı",
+
+                model: "Göçek",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/göçek100.webp"
+
+            },
+
+
+            gocek120: {
+
+                ad: "Göçek 120 cm Banyo Dolabı",
+
+                model: "Göçek",
+
+                olcu: "120 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/göçek120.webp"
+
+            },
+
+
+            infinity80: {
+
+                ad: "Infinity 80 cm Banyo Dolabı",
+
+                model: "Infinity",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/infinity80.jpg"
+
+            },
+
+
+            koza80: {
+
+                ad: "Koza 80 cm MDF Banyo Dolabı",
+
+                model: "Koza",
+
+                olcu: "80 cm",
+
+                fiyat: "14.000 TL",
+
+                foto: "./images/koza80.jpg"
+
+            },
+
+
+            koza100: {
+
+                ad: "Koza 100 cm Banyo Dolabı",
+
+                model: "Koza",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/koza100.jpg"
+
+            },
+
+
+            lexus120: {
+
+                ad: "Lexus 120 cm Banyo Dolabı",
+
+                model: "Lexus",
+
+                olcu: "120 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/lexus120.jpg"
+
+            },
+
+
+            megalux60: {
+
+                ad: "Megalüx 60 cm Banyo Dolabı",
+
+                model: "Megalüx",
+
+                olcu: "60 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/megalüx60.webp"
+
+            },
+
+
+            megalux80: {
+
+                ad: "Megalüx 80 cm Banyo Dolabı",
+
+                model: "Megalüx",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/megalüx80.webp"
+
+            },
+
+
+            megalux105: {
+
+                ad: "Megalüx 105 cm Banyo Dolabı",
+
+                model: "Megalüx",
+
+                olcu: "105 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/megalüx105.webp"
+
+            },
+
+
+            mina50: {
+
+                ad: "Mina 50 cm MDF Banyo Dolabı Beyaz",
+
+                model: "Mina",
+
+                olcu: "50 cm",
+
+                fiyat: "9.800 TL",
+
+                foto: "./images/mina50.jpg"
+
+            },
+
+
+            mina60: {
+
+                ad: "Mina 60 cm Banyo Dolabı",
+
+                model: "Mina",
+
+                olcu: "60 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/mina60.jpg"
+
+            },
+
+
+            mina90: {
+
+                ad: "Mina 90 cm Banyo Dolabı",
+
+                model: "Mina",
+
+                olcu: "90 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/mina90.jpg"
+
+            },
+
+
+            newidea60: {
+
+                ad: "Newidea 60 cm Banyo Dolabı",
+
+                model: "Newidea",
+
+                olcu: "60 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/newidea60.jpg"
+
+            },
+
+
+            phuket80: {
+
+                ad: "Phuket 80 cm Banyo Dolabı",
+
+                model: "Phuket",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/phuket80.webp"
+
+            },
+
+
+            prada65: {
+
+                ad: "Prada 65 cm Banyo Dolabı",
+
+                model: "Prada",
+
+                olcu: "65 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/prada65.jpg"
+
+            },
+
+
+            prada80: {
+
+                ad: "Prada 80 cm Banyo Dolabı",
+
+                model: "Prada",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/prada80.jpg"
+
+            },
+
+
+            prada100: {
+
+                ad: "Prada 100 cm Banyo Dolabı",
+
+                model: "Prada",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/prada100.jpg"
+
+            },
+
+
+            reneta80: {
+
+                ad: "Reneta 80 cm Banyo Dolabı",
+
+                model: "Reneta",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/reneta80.webp"
+
+            },
+
+
+            rosa65: {
+
+                ad: "Rosa 65 cm Banyo Dolabı",
+
+                model: "Rosa",
+
+                olcu: "65 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/rosa65.jpg"
+
+            },
+
+
+            rosa80: {
+
+                ad: "Rosa 80 cm Banyo Dolabı",
+
+                model: "Rosa",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/rosa80.jpg"
+
+            },
+
+
+            rosa100: {
+
+                ad: "Rosa 100 cm Banyo Dolabı",
+
+                model: "Rosa",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/rosa100.jpg"
+
+            },
+
+
+            stella80: {
+
+                ad: "Stella 80 cm Banyo Dolabı",
+
+                model: "Stella",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/stella80.webp"
+
+            },
+
+
+            stella80cm: {
+
+                ad: "Stella 80 cm Banyo Dolabı",
+
+                model: "Stella",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/stella80cm.webp"
+
+            },
+
+
+            stella100: {
+
+                ad: "Stella 100 cm Banyo Dolabı",
+
+                model: "Stella",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/stella100.webp"
+
+            },
+
+
+            stella100cm: {
+
+                ad: "Stella 100 cm Banyo Dolabı",
+
+                model: "Stella",
+
+                olcu: "100 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/stella100cm.webp"
+
+            },
+
+
+            trend60: {
+
+                ad: "Trend 60 cm Banyo Dolabı",
+
+                model: "Trend",
+
+                olcu: "60 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/trend60.webp"
+
+            },
+
+
+            trend80: {
+
+                ad: "Trend 80 cm Banyo Dolabı",
+
+                model: "Trend",
+
+                olcu: "80 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/trend80.webp"
+
+            },
+
+
+            trend105: {
+
+                ad: "Trend 105 cm Banyo Dolabı",
+
+                model: "Trend",
+
+                olcu: "105 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/trend105.webp"
+
+            },
+
+
+            yakut45: {
+
+                ad: "Yakut 45 cm Banyo Dolabı",
+
+                model: "Yakut",
+
+                olcu: "45 cm",
+
+                fiyat: "Fiyat için iletişime geçiniz",
+
+                foto: "./images/yakut45.jpg"
+
+            }
+
+        };
+
+
+
+        /* URL'DEKİ ÜRÜNÜ BUL */
+
+        const params =
+            new URLSearchParams(window.location.search);
+
+        const urunAdi =
+            params.get("urun");
+
+
+
+        /* ÜRÜNÜ GÖSTER */
+
+        const urun =
+            urunler[urunAdi];
+
+
+
+        if (urun) {
+
+            document.title =
+                urun.ad +
+                " | İçin Yapı & Dekorasyon";
+
+
+            document.getElementById("urunBaslik")
+                .textContent = urun.ad;
+
+
+            document.getElementById("urunModel")
+                .textContent = urun.model;
+
+
+            document.getElementById("urunOlcu")
+                .textContent = urun.olcu;
+
+
+            document.getElementById("urunFiyat")
+                .textContent = urun.fiyat;
+
+
+            document.getElementById("urunFoto")
+                .src = urun.foto;
+
+
+            document.getElementById("urunFoto")
+                .alt = urun.ad;
+
+
+            /* WHATSAPP */
+
+            const mesaj =
+                "Merhaba, " +
+                urun.ad +
+                " hakkında bilgi almak istiyorum.";
+
+
+            const whatsappNumarasi =
+                "905414822177";
+
+
+            document.getElementById("whatsappLink")
+                .href =
+                "https://wa.me/" +
+                whatsappNumarasi +
+                "?text=" +
+                encodeURIComponent(mesaj);
+
+        }
+
+
+        else {
+
+            document.getElementById("urunBaslik")
+                .textContent =
+                "Ürün bulunamadı";
+
+
+            document.getElementById("urunFoto")
+                .style.display = "none";
+
+        }
+
+
+    </script>
+
+
+</body>
+
+</html>

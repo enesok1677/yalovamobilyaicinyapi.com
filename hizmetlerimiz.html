@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hizmetlerimiz | İçin Yapı & Dekorasyon</title>
+
+    <style>
+
+        /* ================================
+           GENEL AYARLAR
+        ================================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background:
+                radial-gradient(
+                    circle at 10% 10%,
+                    rgba(255, 115, 0, 0.08),
+                    transparent 30%
+                ),
+                radial-gradient(
+                    circle at 90% 90%,
+                    rgba(255, 115, 0, 0.06),
+                    transparent 30%
+                ),
+                #f5f3ef;
+
+            color: #222;
+            min-height: 100vh;
+        }
+
+
+        /* ================================
+           ÜST MENÜ
+        ================================= */
+
+        .ust-menu {
+            width: 100%;
+            min-height: 90px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 10px 6%;
+
+            background: #111;
+
+            border-bottom: 2px solid #ff7200;
+
+            box-shadow: 0 4px 20px rgba(0,0,0,0.18);
+
+            position: sticky;
+            top: 0;
+
+            z-index: 1000;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            width: 230px;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+
+        /* ANA SAYFA */
+
+        .ana-sayfa {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 12px 20px;
+
+            border: 1px solid #ff7200;
+            border-radius: 10px;
+
+            color: white;
+
+            text-decoration: none;
+
+            font-size: 15px;
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+        .ana-sayfa:hover {
+            background: #ff7200;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+
+        /* ================================
+           BAŞLIK
+        ================================= */
+
+        .baslik {
+            text-align: center;
+
+            max-width: 900px;
+
+            margin: auto;
+
+            padding: 65px 20px 35px;
+        }
+
+        .baslik h1 {
+            font-size: clamp(38px, 5vw, 60px);
+
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            color: #222;
+
+            margin-bottom: 18px;
+        }
+
+        .cizgi {
+            width: 90px;
+            height: 4px;
+
+            background: #ff7200;
+
+            border-radius: 10px;
+
+            margin: 0 auto 20px;
+        }
+
+        .baslik p {
+            font-size: 18px;
+
+            color: #666;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           HİZMETLER ALANI
+        ================================= */
+
+        .hizmetler {
+            width: 90%;
+            max-width: 1100px;
+
+            margin: 15px auto 60px;
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 22px;
+        }
+
+
+        /* ================================
+           HİZMET KARTI
+        ================================= */
+
+        .hizmet {
+            position: relative;
+
+            background: rgba(255,255,255,0.96);
+
+            border: 1px solid #e1ddd7;
+
+            border-left: 5px solid #ff7200;
+
+            border-radius: 16px;
+
+            padding: 28px;
+
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 22px;
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.07);
+
+            transition: all 0.3s ease;
+        }
+
+
+        .hizmet:hover {
+            transform: translateY(-6px);
+
+            border-color: #ff7200;
+
+            box-shadow:
+                0 15px 35px rgba(0,0,0,0.13);
+        }
+
+
+        /* ================================
+           HİZMET İKONU
+        ================================= */
+
+        .ikon {
+            width: 65px;
+            min-width: 65px;
+            height: 65px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            border: 2px solid #ff7200;
+
+            background: #fff8f2;
+
+            color: #ff7200;
+
+            font-size: 29px;
+
+            box-shadow:
+                0 5px 15px rgba(255,114,0,0.12);
+        }
+
+
+        /* ================================
+           HİZMET YAZILARI
+        ================================= */
+
+        .hizmet h2 {
+            font-size: 21px;
+
+            color: #222;
+
+            margin-bottom: 10px;
+        }
+
+        .hizmet h2::after {
+            content: "";
+
+            display: block;
+
+            width: 45px;
+            height: 2px;
+
+            background: #ff7200;
+
+            margin-top: 8px;
+        }
+
+        .hizmet p {
+            color: #666;
+
+            font-size: 15px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           ALT SLOGAN
+        ================================= */
+
+        .slogan {
+            width: 90%;
+            max-width: 1000px;
+
+            margin: 10px auto 70px;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            border-top: 1px solid #ddd;
+
+            border-bottom: 1px solid #ddd;
+        }
+
+        .slogan h3 {
+            color: #ff7200;
+
+            font-size: 27px;
+
+            margin-bottom: 12px;
+        }
+
+        .slogan p {
+            color: #666;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            background: #111;
+
+            color: #999;
+
+            text-align: center;
+
+            padding: 25px 20px;
+
+            border-top: 2px solid #ff7200;
+        }
+
+        footer strong {
+            color: white;
+        }
+
+
+        /* ================================
+           TABLET
+        ================================= */
+
+        @media (max-width: 850px) {
+
+            .hizmetler {
+                grid-template-columns: 1fr;
+            }
+
+            .logo img {
+                width: 190px;
+            }
+
+            .ust-menu {
+                padding-left: 4%;
+                padding-right: 4%;
+            }
+        }
+
+
+        /* ================================
+           TELEFON
+        ================================= */
+
+        @media (max-width: 600px) {
+
+            .ust-menu {
+                min-height: 75px;
+
+                padding: 10px 15px;
+            }
+
+            .logo img {
+                width: 160px;
+            }
+
+            .ana-sayfa {
+                padding: 9px 12px;
+
+                font-size: 13px;
+            }
+
+            .baslik {
+                padding: 45px 20px 30px;
+            }
+
+            .baslik h1 {
+                font-size: 34px;
+
+                letter-spacing: 1px;
+            }
+
+            .baslik p {
+                font-size: 15px;
+            }
+
+            .hizmetler {
+                width: 94%;
+
+                gap: 16px;
+            }
+
+            .hizmet {
+                padding: 22px 18px;
+
+                gap: 15px;
+            }
+
+            .ikon {
+                width: 55px;
+                min-width: 55px;
+                height: 55px;
+
+                font-size: 24px;
+            }
+
+            .hizmet h2 {
+                font-size: 18px;
+            }
+
+            .hizmet p {
+                font-size: 14px;
+            }
+        }
+
+
+        /* ================================
+           ÇOK KÜÇÜK TELEFON
+        ================================= */
+
+        @media (max-width: 420px) {
+
+            .ust-menu {
+                flex-direction: column;
+
+                gap: 12px;
+
+                padding: 15px;
+            }
+
+            .logo img {
+                width: 190px;
+            }
+
+            .ana-sayfa {
+                width: 100%;
+
+                justify-content: center;
+            }
+
+            .hizmet {
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================================
+         ÜST MENÜ
+    ========================================== -->
+
+    <header class="ust-menu">
+
+        <div class="logo">
+
+            <img
+                src="images/inin.png"
+                alt="İçin Yapı & Dekorasyon"
+            >
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="ana-sayfa"
+        >
+
+            🏠 Ana Sayfa
+
+        </a>
+
+    </header>
+
+
+
+    <!-- =========================================
+         BAŞLIK
+    ========================================== -->
+
+    <section class="baslik">
+
+        <h1>HİZMETLERİMİZ</h1>
+
+        <div class="cizgi"></div>
+
+        <p>
+            Yaşam alanlarınız için tasarım, üretim
+            ve uygulama çözümleri sunuyoruz.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================================
+         HİZMETLER
+    ========================================== -->
+
+    <main class="hizmetler">
+
+
+        <!-- MUTFAK -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🍽️
+            </div>
+
+            <div>
+
+                <h2>
+                    Mutfak Tadilatı
+                </h2>
+
+                <p>
+                    Mutfak dolabı tadilatı, kapak değişimi,
+                    eviyeler, tezgâh ve tezgâh arası yapımı
+                    ve değişimi, kahve köşeleri, ek mobilyalar
+                    ve mutfak aksesuarları konusunda hizmet
+                    sunuyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- BANYO -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🚿
+            </div>
+
+            <div>
+
+                <h2>
+                    Banyo Tadilatı
+                </h2>
+
+                <p>
+                    Banyo dolapları, banyo zemin ve duvar
+                    çalışmaları, duşakabin, banyo aksesuarları,
+                    klozetler, çamaşır makinesi dolapları ve
+                    benzeri mobilya modülleri ile komple
+                    söküm ve takım işleri yapıyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- KAPILAR -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🚪
+            </div>
+
+            <div>
+
+                <h2>
+                    Oda Kapıları ve Çelik Kapılar
+                </h2>
+
+                <p>
+                    Amerikan Panel, Melamin, Membran,
+                    Lake ve çelik kapı seçeneklerimizle
+                    birlikte montaj hizmeti sunuyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- PLASTİK DOĞRAMA -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🪟
+            </div>
+
+            <div>
+
+                <h2>
+                    Plastik Doğrama
+                </h2>
+
+                <p>
+                    Winsa, Ege Pen ve benzeri markalarla
+                    pencere ve plastik doğrama çözümleri,
+                    yenileme ve tadilat hizmetleri sunuyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- ÇATI -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🏠
+            </div>
+
+            <div>
+
+                <h2>
+                    Çatı Yapımı ve Tadilatı
+                </h2>
+
+                <p>
+                    Çatı onarımı, çatı yenileme, yalıtım
+                    uygulamaları ve modern çatı çözümleri
+                    sunuyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- CAM BALKON -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🏡
+            </div>
+
+            <div>
+
+                <h2>
+                    Cam Balkon
+                </h2>
+
+                <p>
+                    İhtiyaçlarınıza ve yaşam alanlarınıza
+                    uygun modellerde cam balkon yapımı,
+                    yenileme ve tadilat hizmetleri sunuyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- KIŞ BAHÇESİ -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🌿
+            </div>
+
+            <div>
+
+                <h2>
+                    Kış Bahçesi
+                </h2>
+
+                <p>
+                    Mevsimlere uygun, estetik ve kullanışlı
+                    kış bahçesi uygulamalarıyla yaşam
+                    alanlarınıza yeni kullanım alanları
+                    kazandırıyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- KÜPEŞTE -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                🏢
+            </div>
+
+            <div>
+
+                <h2>
+                    Cam ve Alüminyum Küpeşte
+                </h2>
+
+                <p>
+                    Modern ve sağlam yaşam alanları oluşturmak
+                    için cam ve alüminyum küpeşte işleriyle
+                    ilgili detaylı tadilat ve uygulama
+                    hizmetleri sunuyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- MERMER -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                ◈
+            </div>
+
+            <div>
+
+                <h2>
+                    Mermer İşleri
+                </h2>
+
+                <p>
+                    Mermer söküm ve takım işlemleri,
+                    mermer tezgâh, banyo ve mutfak
+                    uygulamaları ile ilgili hizmetler
+                    sunuyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- FAYANS -->
+
+        <article class="hizmet">
+
+            <div class="ikon">
+                ▦
+            </div>
+
+            <div>
+
+                <h2>
+                    Fayans ve Kalebodur Malzemeleri ve İşçiliği
+                </h2>
+
+                <p>
+                    Porselen, mat ve benzeri modeller ile
+                    fayans uygulamaları, kalebodur montajları,
+                    kırım, döküm ve tadilat gibi bütün işleri
+                    gerçekleştiriyoruz.
+                </p>
+
+            </div>
+
+        </article>
+
+
+    </main>
+
+
+
+    <!-- =========================================
+         ALT SLOGAN
+    ========================================== -->
+
+    <section class="slogan">
+
+        <h3>
+            Ücretsiz Keşif Hizmeti
+        </h3>
+
+        <p>
+            Ücretsiz keşif hizmetimizle sizlere
+            en kaliteli seçenekleri sunuyoruz.
+        </p>
+
+    </section>
+
+
+
+    <!-- =========================================
+         FOOTER
+    ========================================== -->
+
+    <footer>
+
+        <p>
+            © 2026
+            <strong>İçin Yapı & Dekorasyon</strong>
+            — Tüm hakları saklıdır.
+        </p>
+
+    </footer>
+
+
+</body>
+</html>

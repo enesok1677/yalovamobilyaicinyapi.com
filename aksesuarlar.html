@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banyo Aksesuarları | İçin Yapı & Dekorasyon</title>
+    <link rel="stylesheet" href="aksesuarlar.css">
+</head>
+<body>
+
+<header class="ust-menu">
+    <a class="marka" href="index.html">
+        <span class="marka-logo">İ</span>
+        <span>İçin Yapı <span class="turuncu">&</span> Dekorasyon</span>
+    </a>
+    <a href="magaza.html" class="geri-buton">← Mağazaya Dön</a>
+</header>
+
+<main>
+    <section class="hero">
+        <span class="ust-etiket">İÇİN YAPI & DEKORASYON</span>
+        <h1>Banyo Aksesuarları</h1>
+        <p>Banyonuzu tamamlayan modellerimizi keşfedin.</p>
+    </section>
+
+    <section class="tanitim">
+        <div>
+            <span class="tanitim-etiket">ÜRÜN KOLEKSİYONUMUZ</span>
+            <h2>Tarzınızı tamamlayan detaylar</h2>
+            <p>66 farklı aksesuar modelimizi inceleyin. Showroom'umuzda mevcut olan ürünler özel etiketiyle belirtilmiştir.</p>
+        </div>
+        <a href="#urunler" class="turuncu-buton">Tüm Ürünleri Gör ↓</a>
+    </section>
+
+    <section class="katalog" id="urunler">
+        <div class="baslik-satiri">
+            <div>
+                <span class="ust-etiket">ÜRÜN KATALOĞU</span>
+                <h2>Aksesuar Modellerimiz</h2>
+            </div>
+            <span class="adet">66 ürün</span>
+        </div>
+
+        <div class="kategori-filtreleri" aria-label="Ürün kategorileri">
+            <button type="button" class="filtre aktif" data-kategori="Tümü">Tüm Ürünler</button>
+            <button type="button" class="filtre" data-kategori="Lavabo Bataryaları">Lavabo Bataryaları</button>
+            <button type="button" class="filtre" data-kategori="Evye Bataryaları">Evye Bataryaları</button>
+            <button type="button" class="filtre" data-kategori="Banyo Bataryaları">Banyo Bataryaları</button>
+            <button type="button" class="filtre" data-kategori="Diğer Aksesuarlar">Diğer Aksesuarlar</button>
+        </div>
+        <div class="urun-grid" id="urunGrid"></div>
+    </section>
+</main>
+
+<footer class="alt-bilgi">
+    <h3>İçin Yapı & Dekorasyon</h3>
+    <p>Yalova showroom'umuzda sizleri bekliyoruz.</p>
+    <a href="https://maps.app.goo.gl/DjBM7qpNQEf9x2j18" target="_blank" rel="noopener">Konumumuzu Gör</a>
+    <p class="telif">© İçin Yapı & Dekorasyon</p>
+</footer>
+
+<!-- BÜYÜK FOTOĞRAF PENCERESİ -->
+<div class="foto-pencere" id="fotoPencere" aria-hidden="true">
+    <button class="foto-kapat" id="fotoKapat" aria-label="Kapat">×</button>
+    <img id="buyukFotograf" src="" alt="Büyütülmüş aksesuar fotoğrafı">
+</div>
+
+<script>
+    const urunGrid = document.getElementById("urunGrid");
+
+    /*
+      FİYATLARI BURADAN DÜZENLE.
+
+      Örnek:
+      12: "1.250 TL",
+      13: "890 TL",
+
+      Fiyatı henüz belli olmayan ürünleri boş bırakabilirsin.
+    */
+    const fiyatlar = {
+        1: "3390TL",
+        2: "5170TL",
+        3: "6480TL",
+        4: "4470TL",
+        5: "1090TL",
+        6: "1150TL",
+        7: "5170TL",
+        8: "6450TL",
+        9: "825TL",
+        10: "2330TL",
+        11: "415TL",
+        12: "3390TL",
+        13: "600TL",
+        14: "5990TL",
+        15: "2085TL",
+        16: "2060TL",
+        17: "1805TL",
+        18: "1560TL",
+        19: "3210TL",
+        20: "4345TL",
+        21: "4055TL",
+        22: "6225TL",
+        23: "5175TL",
+        24: "11920TL",
+        25: "3025TL",
+        26: "600TL",
+        27: "5950TL",
+        28: "5750TL",
+        29: "5300TL",
+        30: "10800TL",
+        31: "600TL",
+        32: "1855TL",
+        33: "1395TL",
+        34: "1080TL",
+        35: "1450TL",
+        36: "5930TL",
+        37: "650TL",
+        38: "545TL",
+        39: "1755TL",
+        40: "4300TL",
+        41: "865TL",
+        42: "595TL",
+        43: "1135TL",
+        44: "6900TL",
+        45: "6000TL",
+        46: "5600TL",
+        47: "6500TL",
+        48: "6000TL",
+        49: "6000TL",
+        50: "6100TL",
+        51: "6800TL",
+        52: "4360TL",
+        53: "5000TL",
+        54: "4750TL",
+        55: "450TL",
+        56: "450TL",
+        57: "1650TL",
+        58: "3015TL",
+        59: "17500TL",
+        60: "5175TL",
+        61: "9440TL",
+        62: "2900TL",
+        63: "1755TL",
+        64: "3210TL",
+        65: "1925TL",
+        66: "600TL"
+    };
+
+    const urunAdlari = {
+    "1": "Banyo Bataryası Krom",
+    "2": "Banyo Bataryası Krom",
+    "3": "Banyo Bataryası Altın",
+    "4": "Banyo Bataryası Krom",
+    "5": "Kapaklı Kâğıtlık Krom",
+    "6": "Kapaklı Kâğıtlık Siyah",
+    "7": "Banyo Bataryası Krom",
+    "8": "Banyo Bataryası Siyah",
+    "9": "Süngerlik Krom",
+    "10": "Duş Sistemi Krom",
+    "11": "Pompalı Sıvı Sabunluk",
+    "12": "Banyo Bataryası Krom",
+    "13": "Köşe Musluk Altın",
+    "14": "Eviye Bataryası Krom",
+    "15": "Cam Etajer",
+    "16": "Cam Etajer Altın",
+    "17": "Cam Etajer Krom",
+    "18": "Cam Etajer Siyah",
+    "19": "Eviye Sifonu Altın",
+    "20": "Çanak Lavabo Bataryası Krom",
+    "21": "Banyo Bataryası Krom",
+    "22": "Cam Etajer PVD Gold",
+    "23": "Cam Etajer Krom",
+    "24": "Evye Bataryası Krom",
+    "25": "Sabunluk Krom",
+    "26": "Cam Etajer",
+    "27": "Cam Etajer PVD Gold",
+    "28": "Cam Etajer Gold",
+    "29": "Cam Etajer Krom",
+    "30": "Lavabo Bataryası Krom",
+    "31": "Cam Etajer",
+    "32": "Cam Etajer",
+    "33": "Cam Etajer Gold",
+    "34": "Cam Etajer Krom",
+    "35": "Cam Raf Siyah",
+    "36": "Banyo Bataryası Krom",
+    "37": "Köşe Musluk Krom",
+    "38": "Cam Etajer",
+    "39": "Osmanlı Musluğu Altın",
+    "40": "Banyo Bataryası Krom",
+    "41": "Duş Seti Krom",
+    "42": "Lavabo Süzgeci Altın",
+    "43": "Duvar Tipi Lavabo Bataryası Krom",
+    "44": "Touch Banyo Bataryası Altın",
+    "45": "Touch Banyo Bataryası Beyaz",
+    "46": "Touch Banyo Bataryası Krom",
+    "47": "Touch Banyo Bataryası Rose",
+    "48": "Touch Banyo Bataryası Siyah",
+    "49": "Banyo Bataryası Altın",
+    "50": "Banyo Bataryası Antrasit",
+    "51": "Banyo Bataryası Bakır",
+    "52": "Banyo Bataryası Krom",
+    "53": "Banyo Bataryası Beyaz",
+    "54": "Banyo Bataryası Krom-Siyah",
+    "55": "Sabunluk Beyaz",
+    "56": "Sabunluk Siyah",
+    "57": "Pompalı Sıvı Sabunluk",
+    "58": "Duş Tutunma Barı",
+    "59": "İkili Sıvı Sabunluk",
+    "60": "Kâğıt Havluluk / El Kurutma Cihazı",
+    "61": "Büyüteçli Ayna",
+    "62": "LED Ayna",
+    "63": "Çöp Kovası Plastik",
+    "64": "Klozet Fırçası",
+    "65": "Raf Havluluk Krom",
+    "66": "Kağıt Çöp Kutusu"
+};
+
+    // JPG, JPEG, PNG ve WEBP uzantılarını sırayla dener.
+    function fotografYukle(img, numara) {
+        const uzantilar = ["jpg", "jpeg", "png", "webp"];
+        let sira = 0;
+
+        function sonrakiUzanti() {
+            if (sira >= uzantilar.length) {
+                img.alt = "Aksesuar " + numara + " fotoğrafı bulunamadı";
+                img.classList.add("fotograf-hatasi");
+                img.removeAttribute("src");
+                return;
+            }
+
+            img.src = "images/aksesuar" + numara + "." + uzantilar[sira];
+            sira++;
+        }
+
+        img.addEventListener("error", sonrakiUzanti);
+        sonrakiUzanti();
+    }
+
+    function kategoriBelirle(ad) {
+        const metin = ad.toLocaleLowerCase("tr-TR");
+        if (metin.includes("evye")) return "Evye Bataryaları";
+        if (metin.includes("lavabo bataryası") || metin.includes("çanak lavabo")) return "Lavabo Bataryaları";
+        if (metin.includes("banyo bataryası") || metin.includes("touch banyo")) return "Banyo Bataryaları";
+        return "Diğer Aksesuarlar";
+    }
+
+    for (let i = 1; i <= 66; i++) {
+        const kart = document.createElement("article");
+        kart.className = "urun-karti";
+
+        const fotografAlani = document.createElement("div");
+        fotografAlani.className = "urun-fotograf";
+
+        // Yalnızca ilk 11 üründe showroom etiketi gösterilir.
+        if (i <= 11) {
+            const etiket = document.createElement("span");
+            etiket.className = "stok-etiketi";
+            etiket.textContent = "Showroom'umuzda mevcut!";
+            fotografAlani.appendChild(etiket);
+        }
+
+        const fotografLinki = document.createElement("a");
+        fotografLinki.className = "fotograf-link";
+        fotografLinki.href = "#";
+
+        const img = document.createElement("img");
+        img.alt = "Aksesuar " + i;
+        img.loading = "lazy";
+
+        fotografYukle(img, i);
+        fotografLinki.appendChild(img);
+        fotografAlani.appendChild(fotografLinki);
+
+        const bilgi = document.createElement("div");
+        bilgi.className = "urun-bilgi";
+
+        const kategori = document.createElement("span");
+        kategori.className = "urun-kategori";
+        const urunAdi = urunAdlari[i] || ("Aksesuar " + i);
+        kategori.textContent = kategoriBelirle(urunAdi);
+        img.alt = urunAdi;
+
+        const ad = document.createElement("h3");
+        ad.textContent = urunAdi;
+
+        const fiyat = document.createElement("div");
+        fiyat.className = "urun-fiyat";
+
+        if (fiyatlar[i] && fiyatlar[i].trim() !== "") {
+            fiyat.textContent = fiyatlar[i];
+        } else {
+            fiyat.textContent = "Fiyat bilgisi eklenecek";
+            fiyat.classList.add("fiyat-bekliyor");
+        }
+
+        kart.dataset.kategori = kategori.textContent;
+        bilgi.append(kategori, ad, fiyat);
+        kart.append(fotografAlani, bilgi);
+        urunGrid.appendChild(kart);
+
+        fotografLinki.addEventListener("click", function (event) {
+            event.preventDefault();
+
+            if (!img.src || img.classList.contains("fotograf-hatasi")) {
+                return;
+            }
+
+            document.getElementById("buyukFotograf").src = img.src;
+            document.getElementById("fotoPencere").classList.add("acik");
+            document.getElementById("fotoPencere").setAttribute("aria-hidden", "false");
+        });
+    }
+
+    document.querySelectorAll(".filtre").forEach(function (buton) {
+        buton.addEventListener("click", function () {
+            document.querySelectorAll(".filtre").forEach(b => b.classList.remove("aktif"));
+            buton.classList.add("aktif");
+            const secilen = buton.dataset.kategori;
+            document.querySelectorAll(".urun-karti").forEach(function (kart) {
+                kart.style.display = (secilen === "Tümü" || kart.dataset.kategori === secilen) ? "" : "none";
+            });
+        });
+    });
+
+    function pencereyiKapat() {
+        const pencere = document.getElementById("fotoPencere");
+        pencere.classList.remove("acik");
+        pencere.setAttribute("aria-hidden", "true");
+        document.getElementById("buyukFotograf").src = "";
+    }
+
+    document.getElementById("fotoKapat").addEventListener("click", pencereyiKapat);
+
+    document.getElementById("fotoPencere").addEventListener("click", function(event) {
+        if (event.target === this) {
+            pencereyiKapat();
+        }
+    });
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+            pencereyiKapat();
+        }
+    });
+</script>
+
+</body>
+</html>

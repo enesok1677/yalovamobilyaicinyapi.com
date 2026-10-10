@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Klozetler ve Aksesuarlar | İçin Yapı & Dekorasyon</title>
+<style>
+:root{--orange:#ff7200;--ink:#171717;--muted:#6b6762}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;background:linear-gradient(135deg,#f8f6f2,#ece7df);color:#292522;min-height:100vh}
+header{background:#151515;color:#fff;border-bottom:3px solid var(--orange);padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;align-items:center;gap:13px;color:#fff;text-decoration:none;font-weight:800;font-size:clamp(17px,2vw,25px)}
+.logo img{width:72px;height:72px;object-fit:contain}.logo span small{display:block;font-size:11px;letter-spacing:1.5px;font-weight:500;margin-top:4px}
+.home{color:#fff;text-decoration:none;border:1px solid var(--orange);border-radius:10px;padding:11px 16px;font-weight:700;white-space:nowrap}.home:hover{background:var(--orange)}
+.hero{text-align:center;padding:45px 20px 25px}.hero .eyebrow{color:var(--orange);font-weight:800;letter-spacing:3px;text-transform:uppercase;font-size:12px;margin-bottom:12px}.hero h1{font-size:clamp(32px,5vw,52px);color:#24211e;margin-bottom:13px}.hero p{max-width:680px;margin:auto;color:var(--muted);line-height:1.7;font-size:16px}
+.products{width:min(1180px,94%);margin:12px auto 55px;display:grid;grid-template-columns:1fr;gap:24px}
+.card{background:#fff;border:1px solid #e7dfd6;border-radius:18px;overflow:hidden;box-shadow:0 12px 32px rgba(46,35,25,.09);display:grid;grid-template-columns:minmax(200px,270px) minmax(220px,1fr) minmax(220px,320px);gap:0;align-items:stretch}
+.product-photo{min-height:280px;background:#fff;display:flex;align-items:center;justify-content:center;padding:18px;cursor:zoom-in;border-right:1px solid #f0ebe5}
+.product-photo img{width:100%;height:100%;max-height:300px;object-fit:contain}
+.info{padding:25px;align-self:center}.brand{font-size:11px;color:var(--orange);font-weight:800;letter-spacing:1.8px;margin-bottom:8px}.info h2{font-size:clamp(19px,2vw,24px);line-height:1.4;margin-bottom:12px;color:#26221f}.spec{font-size:14px;color:var(--muted);margin-bottom:16px;line-height:1.6}.price{font-size:25px;font-weight:800;color:#d95e00;margin-bottom:18px}.detail-btn{display:inline-block;text-align:center;text-decoration:none;background:var(--ink);color:white;padding:12px 16px;border-radius:9px;font-weight:700;cursor:pointer;border:0;font-size:14px}.detail-btn:hover{background:var(--orange)}
+.measure{background:#faf9f7;border-left:1px solid #f0ebe5;padding:14px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;cursor:zoom-in}.measure img{width:100%;height:260px;object-fit:contain;background:#fff;border-radius:8px}.measure span{font-size:12px;color:#6b6762;text-align:center}
+.note{text-align:center;color:var(--muted);font-size:13px;padding:0 20px 35px}
+footer{background:#151515;color:#c5c1bc;text-align:center;padding:24px 15px;border-top:3px solid var(--orange);font-size:14px}footer strong{color:#fff}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.84);display:none;align-items:center;justify-content:center;padding:20px;z-index:2000}.lightbox.open{display:flex}.lightbox-inner{background:#fff;border-radius:16px;padding:16px;max-width:1000px;width:100%;max-height:94vh;position:relative;text-align:center;overflow:auto}.lightbox img{max-width:100%;max-height:76vh;object-fit:contain}.close{position:sticky;float:right;top:0;border:0;background:#222;color:#fff;border-radius:50%;width:36px;height:36px;font-size:24px;cursor:pointer;z-index:1}#lightbox-title{font-weight:800;margin:10px 35px 5px}#lightbox-price{color:#d95e00;font-weight:800;font-size:20px}
+@media(max-width:850px){.card{grid-template-columns:220px 1fr}.measure{grid-column:1/-1;display:grid;grid-template-columns:1fr auto;border-left:0;border-top:1px solid #f0ebe5}.measure img{height:200px}.product-photo{border-right:1px solid #f0ebe5}.info{padding:20px}}
+@media(max-width:560px){header{padding:12px 4%}.logo img{width:52px;height:52px}.logo span small{font-size:9px}.home{font-size:13px;padding:9px 11px}.hero{padding:34px 18px 20px}.card{grid-template-columns:1fr}.product-photo{height:260px;min-height:0;border-right:0;border-bottom:1px solid #f0ebe5}.info{padding:20px}.measure{display:flex;border-top:1px solid #f0ebe5;padding:15px}.measure img{height:230px}.price{font-size:23px}}
+</style>
+</head>
+<body>
+<header>
+<a class="logo" href="index.html"><img src="images/inin.png" alt="İçin Yapı & Dekorasyon logosu" onerror="this.style.display='none'"><span>İÇİN<small>YAPI &amp; DEKORASYON</small></span></a>
+<a class="home" href="index.html">⌂ Ana Sayfa</a>
+</header>
+<section class="hero"><div class="eyebrow">Ürün Kataloğumuz</div><h1>Klozetler ve Aksesuarlar</h1><p>Banyonuz için modern, şık ve kullanışlı klozet modellerini keşfedin. Ürün fotoğrafını veya ölçü çizimini büyütmek için üzerine tıklayın.</p></section>
+<main class="products">
+<article class="card">
+<div class="product-photo" onclick="openPhoto('images/klozet1.png','Bien Goya Duvara Sıfır Düz Klozet','9.750 TL')"><img src="images/klozet1.png" alt="Bien Goya Duvara Sıfır Düz Klozet"></div>
+<div class="info"><div class="brand">BIEN</div><h2>Bien Goya Duvara Sıfır Düz Klozet</h2><div class="spec">Duvara sıfır takım klozet ve rezervuar.<br>Ölçü çizimi sağ tarafta yer almaktadır.</div><div class="price">9.750 TL</div><button class="detail-btn" onclick="openPhoto('images/klozet1.png','Bien Goya Duvara Sıfır Düz Klozet','9.750 TL')">Ürün Fotoğrafını Büyüt</button></div>
+<div class="measure" onclick="openPhoto('images/klozet1-olcu.png','Bien Goya — Ölçü Çizimi','9.750 TL')"><img src="images/klozet1-olcu.png" alt="Bien Goya klozet ölçü çizimi"><span>Ölçü çizimini büyütmek için tıklayın</span></div>
+</article>
+<article class="card">
+<div class="product-photo" onclick="openPhoto('images/klozet2.png','Bien Asma Klozet Gömme Rezervuarlı','9.500 TL')"><img src="images/klozet2.png" alt="Bien Asma Klozet Gömme Rezervuarlı"></div>
+<div class="info"><div class="brand">BIEN</div><h2>Bien Asma Klozet Gömme Rezervuarlı</h2><div class="spec">Asma klozet modeli, gömme rezervuar sistemiyle kullanılır.<br>Ölçü çizimi sağ tarafta yer almaktadır.</div><div class="price">9.500 TL</div><button class="detail-btn" onclick="openPhoto('images/klozet2.png','Bien Asma Klozet Gömme Rezervuarlı','9.500 TL')">Ürün Fotoğrafını Büyüt</button></div>
+<div class="measure" onclick="openPhoto('images/klozet2-olcu.png','Bien Asma Klozet — Ölçü Çizimi','9.500 TL')"><img src="images/klozet2-olcu.png" alt="Bien asma klozet ölçü çizimi"><span>Ölçü çizimini büyütmek için tıklayın</span></div>
+</article>
+<article class="card">
+<div class="product-photo" onclick="openPhoto('images/klozet3.png','Bien Ronin Duvara Sıfır Oval Klozet','9.000 TL')"><img src="images/klozet3.png" alt="Bien Ronin Duvara Sıfır Oval Klozet"></div>
+<div class="info"><div class="brand">BIEN</div><h2>Bien Ronin Duvara Sıfır Oval Klozet</h2><div class="spec">63 cm + rezervuarlı duvara sıfır klozet takımı.<br>Ürün ölçü çizimi sağ tarafta yer almaktadır.</div><div class="price">9.000 TL</div><button class="detail-btn" onclick="openPhoto('images/klozet3.png','Bien Ronin Duvara Sıfır Oval Klozet','9.000 TL')">Ürün Fotoğrafını Büyüt</button></div>
+<div class="measure" onclick="openPhoto('images/klozet3-olcu.png','Bien Ronin — Ölçü Çizimi','9.000 TL')"><img src="images/klozet3-olcu.png" alt="Bien Ronin klozet ölçü çizimi"><span>Ölçü çizimini büyütmek için tıklayın</span></div>
+</article>
+
+<article class="card">
+<div class="product-photo" onclick="openPhoto('images/klozet4.png','Volcano Duvara Tam Dayalı Klozet','Fiyat bilgisi için iletişime geçin')"><img src="images/klozet4.png" alt="Volcano Duvara Tam Dayalı Klozet"></div>
+<div class="info"><div class="brand">VOLCANO</div><h2>Volcano Duvara Tam Dayalı Klozet</h2><div class="spec">Duvara tam dayalı, rezervuarlı klozet takımı.<br>Yaklaşık ölçüler: genişlik 36 cm, derinlik 65 cm, toplam yükseklik 79 cm. Oturma yüksekliği 41,5 cm.<br>Ölçü çizimi sağ tarafta yer almaktadır.</div><div class="price">Fiyat bilgisi için iletişime geçin</div><button class="detail-btn" onclick="openPhoto('images/klozet4.png','Volcano Duvara Tam Dayalı Klozet','Fiyat bilgisi için iletişime geçin')">Ürün Fotoğrafını Büyüt</button></div>
+<div class="measure" onclick="openPhoto('images/klozet4-olcu.png','Volcano Duvara Tam Dayalı Klozet — Ölçü Çizimi','')"><img src="images/klozet4-olcu.png" alt="Volcano klozet ölçü çizimi"><span>Ölçü çizimini büyütmek için tıklayın</span></div>
+</article>
+<article class="card">
+<div class="product-photo" onclick="openPhoto('images/klozet5.png','Petite Asma WC','Fiyat bilgisi için iletişime geçin')"><img src="images/klozet5.png" alt="Petite Asma WC"></div>
+<div class="info"><div class="brand">PETITE</div><h2>Petite Asma WC</h2><div class="spec">Modern asma klozet modeli.<br>Görselde belirtilen yaklaşık ölçüler: genişlik 35,5 cm, derinlik 48 cm, yükseklik 40 cm.<br>Ölçü çizimi sağ tarafta yer almaktadır.</div><div class="price">Fiyat bilgisi için iletişime geçin</div><button class="detail-btn" onclick="openPhoto('images/klozet5.png','Petite Asma WC','Fiyat bilgisi için iletişime geçin')">Ürün Fotoğrafını Büyüt</button></div>
+<div class="measure" onclick="openPhoto('images/klozet5-olcu.png','Petite Asma WC — Ölçü Çizimi','')"><img src="images/klozet5-olcu.png" alt="Petite asma WC ölçü çizimi"><span>Ölçü çizimini büyütmek için tıklayın</span></div>
+</article>
+</main>
+<p class="note">Ürün ölçü çizimleri üretici görsellerinden alınmıştır. Fiyat ve stok durumunu sipariş öncesinde teyit ediniz.</p>
+<footer>© 2026 <strong>İçin Yapı &amp; Dekorasyon</strong> — Tüm hakları saklıdır.</footer>
+<div class="lightbox" id="lightbox" onclick="if(event.target===this)closePhoto()"><div class="lightbox-inner"><button class="close" onclick="closePhoto()" aria-label="Kapat">×</button><img id="lightbox-image" src="" alt=""><div id="lightbox-title"></div><div id="lightbox-price"></div></div></div>
+<script>
+function openPhoto(src,title,price){document.getElementById('lightbox-image').src=src;document.getElementById('lightbox-image').alt=title;document.getElementById('lightbox-title').textContent=title;document.getElementById('lightbox-price').textContent=price;document.getElementById('lightbox').classList.add('open')}
+function closePhoto(){document.getElementById('lightbox').classList.remove('open')}
+document.addEventListener('keydown',function(e){if(e.key==='Escape')closePhoto()});
+</script>
+</body></html>
